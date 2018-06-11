@@ -5,7 +5,14 @@ import { DataService } from './data.service';
   providedIn: 'root'
 })
 export class PracticeService {
-  totalCount = 0;
+
+  _totalCount = 0;
+  get totalCount() {
+    return this._totalCount;
+  }
+  set totalCount(value) {
+    this._totalCount = value;
+  }
 
   constructor(private dataService: DataService) { }
 
@@ -22,6 +29,7 @@ export class PracticeService {
   }
 
   getData() {
-    return 1;
+    return this.dataService.method1();
   }
 }
+
